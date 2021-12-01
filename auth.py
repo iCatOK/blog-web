@@ -26,17 +26,16 @@ def login():
 # редирект в случае пойманных куки
 def redirect():
     id = get_current_user_id()
-    print(f'полученное значение id={id}')
     
     if id != None:
-        go_app('test_list_page', new_window=False)
+        go_app('home_page', new_window=False)
 
 
 # основной код страницы авторизации
 def auth_page():
     init_js_cookie_io()
-    remove_all_cookies()
     redirect()
+    remove_all_cookies()
     show_message()
     put_markdown('# ✅ Авторизация')
     put_column([

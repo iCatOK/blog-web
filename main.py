@@ -1,8 +1,10 @@
 from pywebio.platform import start_server
 from pywebio.session import go_app
+from add_record import add_record_page
 
 from auth import auth_page
 from home import home_page
+from edit_record import edit_record_page
 from register import register_page
 from cookie_io import init_js_cookie_io, remove_all_cookies
 
@@ -19,6 +21,8 @@ main_router = [
     register_page,
     auth_page,
     home_page,
+    edit_record_page,
+    add_record_page
 ]
 
 

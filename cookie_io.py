@@ -3,14 +3,12 @@ from pywebio.session import eval_js, run_js
 
 # литералы для сохранения переменных куки
 current_user_id = 'current_user_id'
-current_test_id = 'current_test_id'
-state = 'state'
+current_record_id = 'current_record_id'
 
 # список литералов
 literals = [
     current_user_id,
-    current_test_id,
-    state
+    current_record_id
 ]
 
 
@@ -60,6 +58,22 @@ def remove_cookie(key):
     run_js('deleteCookie(key)', key=key)
 
 
+# сохранить id записи в куки
+def save_current_record_id(id: int):
+    set_cookie(current_record_id, f'{id}')
+
+
+# получить id записи из куки
+def get_current_record_id():
+    id = get_cookie(current_record_id)
+    return None if id == None or id == '' else int(id)
+
+
+# удалить информацию о записи
+def remove_record_info():
+    remove_cookie(current_record_id)
+
+
 # сохранить id пользователя в куки
 def save_current_user_id(id: int):
     set_cookie(current_user_id, f'{id}')
@@ -74,12 +88,6 @@ def get_current_user_id():
 # удалить информацию о пользователе
 def remove_user_info():
     remove_cookie(current_user_id)
-
-
-# получить id теста из куки
-def get_current_test_id() -> int:
-    id = get_cookie(current_test_id)
-    return None if id == None or id == '' else int(id)
 
 
 # удалить все куки

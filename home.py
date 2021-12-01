@@ -59,7 +59,10 @@ def home_page():
             None, style(put_buttons(['Об авторе', 'Выйти'], [credits, logout]), 'align-self: center')
         ], size='60% 10px 40%'
     )
+
     put_empty_row()
+
+    
     
 
     

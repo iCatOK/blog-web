@@ -1,6 +1,6 @@
 tasks:
   - name: Resolve dependencies
-    init: python -m pip3 install pywebio
+    init: pip3 install pywebio
     command: python main.py
 
 ports:
